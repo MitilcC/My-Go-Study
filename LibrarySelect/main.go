@@ -34,6 +34,29 @@ func (u Library)ShowAllBook(){//展示所有书
 	}
 }
 
+func Solve() {
+	
+	a := make([]int,0) 
+	for i := 0; i < 10; i++ { 
+		for j := 1; j <= 10; j++ {
+			a = append(a, i)
+		}
+	}
+
+	temp := make(map[int]bool)
+
+	var new []int
+	
+	for _, val := range a {
+		if !temp[val] {
+			temp[val] = true   
+			new = append(new, val)
+		}
+	}
+
+	fmt.Printf("去重后切片：%v\n", new) 
+}
+
 func main() {
 	library := Library{//两种定义方式
 		num:4,
@@ -65,4 +88,8 @@ func main() {
 	library.ShowAllBook()
 	library.RemoveBook(2)
 	library.ShowAllBook()
+	Solve()
 }
+
+
+
